@@ -1,0 +1,31 @@
+gallery_create
+
+galleri::create([
+    'title'=>'Pembaharuan',
+    'slug'=>'update',
+    'user_id'=>'1',
+    'image1'=>'p1-1.png',
+    'image2'=>'p1-2.png',
+    'image3'=>'p1-3.png',
+    'image4'=>'p1-4.png',
+    'content'=>'Projek ini dibuat pada lahan tanah kosong'
+])
+
+galleri::create([
+    'title'=>'Cinengnong',
+    'slug'=>'cinengong',
+    'user_id'=>'1',
+    'image1'=>'p2-1.png',
+    'image2'=>'p2-2.png',
+    'image3'=>'p2-3.png',
+    'image4'=>'p2-4.png',
+    'content'=>'Projek ini dibuat pada tanah lahan kosong'
+])
+
+galleri::create([
+    'title'=>'Cirami',
+    'slug'=>'cirami',
+    'user_id'=>'1',
+    'image1'=>'p3-1.png',
+    'content'=>'Projek ini dibuat pada tanah yang tidak kosong'
+])

@@ -1,0 +1,14 @@
+Category::create([
+    'name'=>'Pembaharuan',
+    'slug'=>'update'
+])
+
+Category::create([
+    'name'=>'Legalitas',
+    'slug'=>'legalitas'
+])
+
+Category::create([
+    'name'=>'Acara',
+    'slug'=>'acara'
+])

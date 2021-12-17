@@ -1,0 +1,25 @@
+Halaman Menu Utama (Admin & Klien):
+    - Manu Welcome = Sebagai arahan untuk tampilan user / admin pertama buka website, selanjutnya login
+    *Akun bersifat wajib untuk membuka halaman lain + sesi login Akun
+
+    Menu Klien (Front End):
+        - Homepage_Klien = Berisi wallpaper masejahtera & iklan dari produk sekilas (image coursel) + button lebih lanjut ke halaman spesifik
+        - Gallery = List album gambar berdasarkan nama project & tahun
+        - Visi & Misi = Bersifat statis mengenai visi dan misi utama dari M.A.S
+        - Projek = Sekilas mengenai projek yang sedang dilakukan oleh PT MAS (jika projek kersama ditunjukan logo & status perusahaannya)
+        - Berita = Berisi pembaharuan atau informasi sekilas M.A.S
+        - About US = Berisi informasi, alamat (g.maps), kontak dsb 
+        - Account = Untuk melihat status akun, merubah nama / gambar, dan info lainnya termasuk status pendaftarn LOI
+        - Pendaftaran = bisa diakses oleh klien untuk mengisikan Pendaftaran kerjasama
+        - Pengajuan kerjasama = jika akun sudah verified maka menu ini muncul, digunakan sebagai pengiriman LOI
+
+    Menu Admin (Back End):
+        - Homepage_Admin = Berisi overview status halaman menuju halaman Utama
+        - Gallery = Bisa menambahkan album baru, judul + deskripsi + gambar
+        - Projek = bisa menambahkan, delete, Active, and disactive dari projek.
+        - Berita = Tambah, deleete, higlight
+        - About us = bisa merubah informasi
+        - Account = untuk memverifikasi tugas yang ada
+        - Klien = Merupakan list berapa banyak akun & status dari akunya
+        - Status = Admin dapat melihat semua akun yang mendaftar dan digunakan sebagai reviewer
+

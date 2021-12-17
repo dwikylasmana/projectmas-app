@@ -1,0 +1,18 @@
+News::create([
+    'title'=> 'Verifikasi Dokumen Desember 2021',
+    'slug'=> 'verifikasi-dokumen-desember-2021',
+    'user_id'=> 1,
+    'category_id' =>2,
+    'intro'=> 'Proses pendaftaran kerjasama pada bulan desember direkap berdasarkan nomor pendaftaran yang ditentukan',
+    'content'=> 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis tempore ipsam totam asperiores molestias earum excepturi similique amet soluta voluptate quidem repudiandae, doloremque provident? Eum consequatur eos soluta minima nobis. Quas reiciendis quam necessitatibus nulla praesentium illum quae, facere iste deserunt? Porro mollitia rerum quia voluptates. At eos doloremque tempore error laudantium quidem aliquam. Tenetur dignissimos, ratione fugiat reprehenderit quam molestias at veniam nesciunt sit temporibus cupiditate et, recusandae minus. Deleniti maiores fugit voluptatibus reiciendis aut laborum sunt quae aliquam. Qui iste aspernatur quo modi magnam iure, deserunt beatae sequi dicta, ratione hic velit earum repellat sit. Quae, molestiae vitae.'
+])
+
+News::create([
+    'title'=> 'Jadwal Meeting Bulan Desember 2021',
+    'slug'=> 'jadwal-meeting-bulan-desember-2021',
+    'user_id'=> 1,
+    'category_id' =>3,
+    'intro'=> 'Berikut merupakan jadwal yang telah disebarkan untuk waktu dan tempat meeeting',
+    'content'=> 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis tempore ipsam totam asperiores molestias earum excepturi similique amet soluta voluptate quidem repudiandae, doloremque provident? Eum consequatur eos soluta minima nobis. Quas reiciendis quam necessitatibus nulla praesentium illum quae, facere iste deserunt? Porro mollitia rerum quia voluptates. At eos doloremque tempore error laudantium quidem aliquam. Tenetur dignissimos, ratione fugiat reprehenderit quam molestias at veniam nesciunt sit temporibus cupiditate et, recusandae minus. Deleniti maiores fugit voluptatibus reiciendis aut laborum sunt quae aliquam. Qui iste aspernatur quo modi magnam iure, deserunt beatae sequi dicta, ratione hic velit earum repellat sit. Quae, molestiae vitae.'
+])
+

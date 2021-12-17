@@ -11,7 +11,7 @@
         @if ($news->count())
 
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1200x400/?{{ $news[0]->category->name }}" class="card-img-top" alt="...">
+            <img src="https://source.unsplash.com/1200x400/?{{ $news[0]->category->type }}" class="card-img-top" alt="...">
             <div class="card-body text-center">
               <h3 class="card-title">{{ $news[0]->title }}</h3>
               <p class="card-text">{{ $news[0]->intro }}</p>

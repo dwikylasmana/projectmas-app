@@ -34,13 +34,13 @@ class DatabaseSeeder extends Seeder
 
         Category::create([
             'name'=>'Pembaharuan',
-            'tile'=>'Website Maintenance',
+            'type'=>'Website Maintenance',
             'slug'=>'update'
         ]);
         
         Category::create([
             'name'=>'Legalitas',
-            'type'=>'Legal Document',
+            'type'=>'Document',
             'slug'=>'legalitas'
         ]);
         

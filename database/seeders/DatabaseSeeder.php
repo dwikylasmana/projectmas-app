@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         
         Category::create([
             'name'=>'Legalitas',
-            'type'=>'Document',
+            'type'=>'document',
             'slug'=>'legalitas'
         ]);
         

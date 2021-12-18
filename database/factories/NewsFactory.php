@@ -19,7 +19,10 @@ class NewsFactory extends Factory
             'user_id'=> mt_rand(1,5),
             'category_id' => mt_rand(1,3),
             'intro'=> $this->faker->sentence(mt_rand(10,30)),
-            'content'=> $this->faker->paragraph(mt_rand(1,6))
+            //'content'=> '<p>' . implode('</p><p>',$this->faker->paragraphs(mt_rand(2,6))) . '</p>'
+            'content'=> collect($this->faker->paragraphs(mt_rand(2,6)))
+                ->map(fn($p) => "<p>$p</p>")
+                ->implode('')
         ];
     }
 }

@@ -17,7 +17,8 @@ Route::get('/login', function () {
 
 Route::get('/akun', function () {
     return view('akun', [
-        "title"=>"Akun Saya"
+        "title"=>"Akun Saya",
+        "active"=> "akun"
     ]);
 });
 
@@ -30,27 +31,23 @@ Route::get('/welcome', function () {
 
 Route::get('/home', function () {
     return view('homepage_klien', [
-        "title"=>"Home"
+        "title"=>"Home",
+        "active"=> "home"
     ]);
 });
 
 Route::get('/riwayat', function () {
     return view('riwayat', [
-        "title"=>"Riwayat Projek"
+        "title"=>"Riwayat Projek",
+        "active"=> "riwayat"
     ]);
 });
 
-Route::get('/projek', function () {
-    return view('riwayat', [
-        "title"=>"Riwayat Projek"
-    ]);
-});
-
-/*Berita - Dynamic */
+/*Berita & Kategori - Dynamic */
 Route::get('/berita', [NewsController::class, 'index']);
 Route::get('/berita/{halaman:slug}', [NewsController::class, 'single']);
 
-Route::get('/berita/kategori', [CategoryController::class, 'show']);
+Route::get('/kategori_berita', [CategoryController::class, 'show']);
 Route::get('/berita/kategori/{category:slug}', [CategoryController::class, 'find']);
 
 
@@ -61,7 +58,8 @@ Route::get('/galeri/{details:slug}', [GalleriController::class, 'single']);
 /*Visi & Misi - Static */
 Route::get('/visi_misi', function () {
     return view('visi_misi', [
-        "title"=>"Visi & Misi"
+        "title"=> "Visi & Misi",
+        "active"=> "visi_misi"
     ]);
 });
 
@@ -69,5 +67,6 @@ Route::get('/visi_misi', function () {
 Route::get('/about', function () {
     return view('tentang', [
         "title"=>"Tentang Kami",
+        "active"=>"about"
     ]);
 });

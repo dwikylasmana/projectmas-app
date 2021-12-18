@@ -10,6 +10,7 @@ class CategoryController extends Controller
     public function show(){
         return view('kategori', [
             'title'=> 'Kategori Berita',
+            "active"=> "berita",
             'category'=> Category::all()
         ]);
     }
@@ -17,6 +18,7 @@ class CategoryController extends Controller
     public function find(Category $category){
         return view('berita', [
             'title'=>$category->name,
+            "active"=> "berita",
             'news'=>$category->news,
             'category'=>$category->name
         ]);

@@ -11,6 +11,7 @@ class GalleriController extends Controller
     public function index(){
         return view('galleri', [
             "title"=>"Galleri Projek",
+            "active"=> "galeri",
             "gallery_func" => galleri::latest()->get()
         ]);
     }
@@ -18,6 +19,7 @@ class GalleriController extends Controller
     public function single(galleri $details){
         return view('galleri_',[
             "title"=>"Gallery Detail",
+            "active"=> "galeri",
             "gallery_func"=> $details
         ]);
     }

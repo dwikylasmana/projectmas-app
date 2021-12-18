@@ -8,6 +8,10 @@
 
         <h1 class="mb-5 text-center">Berita Acara Perusahaan</h1>
 
+        <div class="d-flex justify-content-center">
+            {{ $news->links() }}
+        </div>
+
         <div class="row justify-content-center mb-3">
             <div class="col-md-4">
                 <form action="/berita">
@@ -52,11 +56,13 @@
             </div>
         </div>
 
+
         @else
 
         <h4 class="text-center fs-4">Berita tidak ditemukan.</h4>
 
         @endif
+
         <br>
     </section>
 

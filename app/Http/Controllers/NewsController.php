@@ -10,17 +10,10 @@ class NewsController extends Controller
 
     public function index(){
 
-        $news = News::latest();
-
-        if(request('search')){
-            $news->where('title','like','%' . request('search') . '%');
-        }
-
-
         return view('berita', [
             "title"=>"Semua Berita",
             "active"=> "berita",
-            "news" => $news->get()
+            "news" => News::latest()->filter()->paginate(7)->withQueryString()
         ]);
     }
 

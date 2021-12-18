@@ -1,19 +1,15 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GalleriController;
 use Illuminate\Support\Facades\Route;
-use App\Models\News;
-use App\Models\Galleri;
-use App\Models\Category;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 
-Route::get('/login', function () {
-    return view('login', [
-        "title"=>"Login"
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
 
 Route::get('/akun', function () {
     return view('akun', [

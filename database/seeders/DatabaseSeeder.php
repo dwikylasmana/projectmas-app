@@ -99,6 +99,6 @@ class DatabaseSeeder extends Seeder
         ]);
         
         User::factory(3)->create();
-        News::factory(5)->create();
+        News::factory(25)->create();
     }
 }

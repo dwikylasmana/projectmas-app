@@ -20,6 +20,7 @@
         <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
         <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
         
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         <link href="/css/style.css" rel="stylesheet">
         <script type="/js/main.js" src="javascript.js"></script>
 

@@ -1,38 +1,45 @@
-@extends('layout/main_layout_v2')
+@extends('layout/welcome_menu')
 
-@section('content')     
+@section('content')       
     
-<div class="row" style="margin-top:10%;">
-    <div class="container">
-        <!--Login-->
-        <form method="POST" action="check-login.php">
-            <div class="col s12 m12 l6 offset-l3 card-panel z-depth white">
-                <div class="card-title center">
-                    <h4>Masuk</h4>
-                </div>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
 
-                <!--input text nama pengguna-->
-                <div class="col s12 m12 l12 input-field e-input-field">
-                    <input type="text" name="username" id="icon_prefix" class="validate">
-                    <label for="icon_prefix">Nama Pengguna</label>
-                </div>
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 
-                <!--input text password-->
-                <div class="col s12 m12 l12 input-field e-input-field">
-                    <input type="password" name="password" id="icon_prefix" class="validate">
-                    <label for="icon_prefix">Kata Sandi</label>
-                </div>
+    <main class="form-signin">
+    <form>
+        <img class="mb-4 center" src="/gambar/logo_head.png" alt="" width="200" height="100%">
+        <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
 
-                <!--Button-->
-                <div class="row">
-                    <div class="col s12 m12 l12 center">
-                        <input name="login" type="submit" value="Masuk" class="modal-action modal-close waves-effect waves-light btn red darken-2">
-                    </div>
-                  </div>
+        <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Alamat Email</label>
+        </div>
+        <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+        </div>
 
-            </div>
-        </form>
-    </div>		
-</div>
+        <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+    </main>
 
 @endsection

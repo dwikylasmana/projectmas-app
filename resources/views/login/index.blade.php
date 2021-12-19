@@ -1,21 +1,48 @@
-@extends('layout/welcome_menu')
+@extends('layout/main_layout_v2')
 
-@section('content')       
+@section('content')         
 
+
+    <br><br>
     <div class="row justify-content-center">
         <div class="col-md-5">
+
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+
             <main class="form-signin">
-                <form>
-                    <img class="mb-4 mt-5 justify-content-center" src="/gambar/logo_head.png" alt="" width="200" height="100%">
+                <form action="/login" method="post">
+                    @csrf
+                    <div class="logo">
+                        <img src="/gambar/logo_head.png" alt="" width="200" height="100%">
+                    </div>
                     <h1 class="h3 mb-3 fw-normal text-center">Silahkan Login</h1>
             
                     <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Alamat Email</label>
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
+                    <label for="email">Alamat Email</label>
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
+                    
                     <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    <label for="password">Password</label>
                     </div>
             
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
@@ -25,5 +52,6 @@
         </div>
     </div>
 
-
+    <br>
+    <br>
 @endsection

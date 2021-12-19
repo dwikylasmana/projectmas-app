@@ -5,6 +5,7 @@ body, html {
 body {
     font-family: "Open Sans", sans-serif;
     color: #444444;
+    
   }
   
   a {
@@ -36,6 +37,11 @@ body {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
+
+  .form-signin .logo {
+    display: flex;
+    justify-content: center;
+  }
   
   .form-signin input[type="password"] {
     margin-bottom: 10px;
@@ -45,7 +51,7 @@ body {
 
   .form-registration input {
     border-radius: 0;
-    margin-bottom: -1px;
+    margin-bottom: 20px;
   }
   /*--------------------------------------------------------------
   # visi & misi
@@ -332,7 +338,7 @@ body {
     margin: 0;
     padding: 10px 0;
     visibility: hidden;
-    background: rgb(27, 27, 27);
+    background: #1b1b1b;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: 1s;
   }
@@ -363,7 +369,71 @@ body {
     left: 100%;
     visibility: visible;
   }
+
+  .navbar button {
+    margin-left: 17px;
+    background: transparent; 
+    border: 0px solid;
+    font-size: 16px;
+    color: #bbbbbb;
+  }
   
+  /*
+  * Sidebar
+  */
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    /* rtl:raw:
+    right: 0;
+    */
+    bottom: 0;
+    /* rtl:remove */
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+
+  @media (max-width: 767.98px) {
+    .sidebar {
+      top: 5rem;
+    }
+  }
+
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #727272;
+  }
+
+  .sidebar .nav-link.active {
+    color: #2470dc;
+  }
+
+  .sidebar .nav-link:hover .feather,
+  .sidebar .nav-link.active .feather {
+    color: inherit;
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
   /*--------------------------------------------------------------
   # Mobile
   --------------------------------------------------------------
@@ -774,6 +844,7 @@ body {
     color: #cfc03b;
     font-size: 14px;
     background: #f7fbfe;
+    min-height: 100%;
   }
   #footer .footer-top {
     padding: 60px 0 30px 0;

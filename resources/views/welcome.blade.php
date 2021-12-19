@@ -1,6 +1,6 @@
-@extends('layout/welcome_menu')
+@extends('layout/main_layout_v2')
 
-@section('content')       
+@section('content')
 
        <!-- if not login balik ke welcome.blade.php as warning js-->
 

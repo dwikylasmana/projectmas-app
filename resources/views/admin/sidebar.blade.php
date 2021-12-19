@@ -1,0 +1,49 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
+            <span data-feather="home"></span>
+            Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/berita') ? 'active' : '' }}" href="/dashboard/berita">
+            <span data-feather="file"></span>
+            Berita
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/galeri') ? 'active' : '' }}">
+            <a class="nav-link" href="#">
+            <span data-feather="image"></span>
+            Gallery
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/riwayat') ? 'active' : '' }}">
+            <a class="nav-link" href="#">
+            <span data-feather="clock"></span>
+            Riwayat
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/pendaftaran') ? 'active' : '' }}">
+            <a class="nav-link" href="#">
+            <span data-feather="archive"></span>
+            Pendaftaran
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/pengajuan') ? 'active' : '' }}">
+            <a class="nav-link" href="#">
+            <span data-feather="clipboard"></span>
+            Pengajuan
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('dashboard/jadwal') ? 'active' : '' }}">
+            <a class="nav-link" href="#">
+            <span data-feather="layers"></span>
+            Jadwal
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</nav>

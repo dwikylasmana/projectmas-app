@@ -1,6 +1,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
+    
+      @auth
       <div class="footer-top">
         <div class="container">
           <div class="row">
@@ -47,6 +48,7 @@
           </div>
         </div>
       </div>
+      @endauth
 
       <div class="container d-md-flex py-4">
 

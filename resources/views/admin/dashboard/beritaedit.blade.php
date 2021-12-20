@@ -53,7 +53,7 @@
                     @enderror
                 </div>
                 <br>
-                <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
+                <button type="submit" class="btn btn-md btn-primary">Update</button>
 
             </form> 
         </div>

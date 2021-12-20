@@ -5,26 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jadwal extends Model
+class pengajuan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'lokasi','date','time','user_id','note'
+        'user_id','file1','file2','file3','file4','content','valid','msg'
     ];
 
     protected $guarded = [
-        'id'
+        'id','timestamps'
     ];
 
     protected $with = (['user']);
-
     public function user(){
         return $this->belongsTo(User::class);
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'id';
     }
 }

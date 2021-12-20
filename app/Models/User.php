@@ -45,6 +45,7 @@ class User extends Authenticatable
         return $this->hasMany(galleri::class);
         return $this->hasMany(Category::class);
         return $this->belongsTo(pendaftaran::class);
+        return $this->belongsTo(pengajuan::class);
     }
 
     public function getRouteKeyName()

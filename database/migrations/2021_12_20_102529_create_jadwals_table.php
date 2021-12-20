@@ -14,7 +14,12 @@ class CreateJadwalsTable extends Migration
     public function up()
     {
         Schema::create('jadwals', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
+            $table->foreignId('user_id');
+            $table->string('date')->nullable();
+            $table->string('time');
+            $table->string('lokasi')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

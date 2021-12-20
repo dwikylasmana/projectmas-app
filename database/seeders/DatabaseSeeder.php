@@ -8,7 +8,8 @@ use App\Models\News;
 use App\Models\pendaftaran;
 use App\Models\User;
 use App\Models\galleri;
-
+use App\Models\Jadwal;
+use App\Models\pengajuan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'dwikyl',
             'name'=> 'Dwiky Lasmana Admin',
             'email'=> 'dwikylasmana@gmail.com',
+            'role'=> 'Admin',
             'password'=> bcrypt('dwiky')
         ]);
 
@@ -45,8 +47,17 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'ilhams',
             'name'=> 'Ilham Saputra Admin',
+            'role'=> 'Admin',
             'email'=> 'ilhams6688@gmail.com',
             'password'=> bcrypt('ilham')
+        ]);
+
+        User::create([
+            'username' => 'dummy',
+            'name'=> 'Member View',
+            'role' => 'Klien',
+            'email'=> 'dummy123@gmail.com',
+            'password'=> bcrypt('member')
         ]);
 
         Category::create([
@@ -118,5 +129,7 @@ class DatabaseSeeder extends Seeder
         User::factory(20)->create();
         News::factory(25)->create();
         pendaftaran::factory(20)->create();
+        Jadwal::factory(20)->create();
+        pengajuan::factory(20)->create();
     }
 }

@@ -34,13 +34,13 @@
             </a>
         </li>
         <li class="nav-item {{ Request::is('dashboard/pengajuan*') ? 'active' : '' }}">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('pengajuan.index') }}">
             <span data-feather="clipboard"></span>
             Pengajuan
             </a>
         </li>
         <li class="nav-item {{ Request::is('dashboard/jadwal*') ? 'active' : '' }}">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route("jadwal.index") }}">
             <span data-feather="layers"></span>
             Jadwal
             </a>

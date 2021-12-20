@@ -49,7 +49,7 @@
                         @enderror
                     </div>
             
-                    <button class="w-100 mt-3 btn btn-lg btn-primary" type="submit">Register</button>
+                    <button class="btn-lg" type="submit">Register</button>
                 </form>
                 <small class="mt-3">Sudah membuat akun? <a href="/login">Silahkan Login</a></small>
                 </main>

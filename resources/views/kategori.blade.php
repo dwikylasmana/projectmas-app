@@ -2,7 +2,7 @@
 
 @section('content')      
     <section id="kategori">
-        <h1>Kategori Berita</h1>
+        <h1 class="mt-5 py-3">Kategori Berita</h1>
 
         <div class="container pt-4 pb-4">
             <div class="row">

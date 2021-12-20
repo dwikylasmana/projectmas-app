@@ -28,7 +28,7 @@
                     <div class="logo">
                         <img src="/gambar/logo_head.png" alt="" width="200" height="100%">
                     </div>
-                    <h1 class="h3 mb-3 fw-normal text-center">Silahkan Login</h1>
+                    <h2>Silahkan Login</h2>
             
                     <div class="form-floating">
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
@@ -45,7 +45,7 @@
                     <label for="password">Password</label>
                     </div>
             
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                    <button class="button btn-lg" type="submit">Login</button>
                 </form>
                 <small class="mt-3">Belum buat akun? <a href="/register">Registrasi Sekarang!</a></small>
                 </main>

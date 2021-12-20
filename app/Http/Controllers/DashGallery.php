@@ -16,6 +16,9 @@ class DashGallery extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin');        
+        if(auth())
+
         return view('/admin/dashboard/galleri', [
             'title'=>'Galeri Projek',
             "active"=> "galleri",
@@ -45,8 +48,8 @@ class DashGallery extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'     => 'required',
-            'content'   => 'required',
+            'title'      => 'required',
+            'content'    => 'required',
             'image1'     => 'required|image|mimes:png,jpg,jpeg',
             'image2'     => 'image|mimes:png,jpg,jpeg',
             'image3'     => 'image|mimes:png,jpg,jpeg',
@@ -56,7 +59,7 @@ class DashGallery extends Controller
             'image7'     => 'image|mimes:png,jpg,jpeg',
             'image8'     => 'image|mimes:png,jpg,jpeg',
             'image9'     => 'image|mimes:png,jpg,jpeg',
-            'image10'     => 'image|mimes:png,jpg,jpeg',
+            'image10'    => 'image|mimes:png,jpg,jpeg',
         ]);
 
 
@@ -154,10 +157,8 @@ class DashGallery extends Controller
         ]);
 
         if($galleri){
-            //redirect dengan pesan sukses
             return redirect()->route('galleri.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
-            //redirect dengan pesan error
             return redirect()->route('galleri.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }

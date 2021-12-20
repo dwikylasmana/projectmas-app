@@ -97,10 +97,8 @@ class DashDaftar extends Controller
         ]);
 
         if($daftar){
-            //redirect dengan pesan sukses
             return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
-            //redirect dengan pesan error
             return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }

@@ -48,6 +48,7 @@
                 @endforeach
             </select>
         </div>
+        
         <div class="mb-3">
             <label for="content" class="form-label">Isi Berita</label>
                 @error('content')

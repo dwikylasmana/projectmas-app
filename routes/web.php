@@ -13,28 +13,35 @@ use App\Http\Controllers\DashDaftar;
 use App\Http\Controllers\DashGallery;
 use App\Http\Controllers\DashJadwal;
 use App\Http\Controllers\DashNews;
+use App\Http\Controllers\DashPengajuan;
+use App\Http\Controllers\PengajuanController;
+
+//-------------------------------------------------------------------------------
+//ADMIN AREA
+
+Route::get('/dashboard', [DashbboardController::class, 'index'])->name('dashboard')->middleware('isAdmin');
+Route::resource('galleri', DashGallery::class)->middleware('isAdmin');
+Route::resource('daftar', DashDaftar::class)->middleware('isAdmin');
+Route::resource('akun', DashAkun::class)->middleware('isAdmin');
+Route::resource('jadwal', DashJadwal::class)->middleware('isAdmin');
+Route::resource('pengajuan', DashPengajuan::class)->middleware('isAdmin');
+Route::get('pengajuan/download', [PengajuanController::class, 'download'])->middleware('isAdmin');
 
 
-Route::resource('galleri', DashGallery::class)->middleware('auth');
-Route::resource('daftar', DashDaftar::class)->middleware('auth');
-Route::resource('akun', DashAkun::class)->middleware('auth');
-Route::resource('jadwal', DashJadwal::class)->middleware('auth');
-
-
-Route::resource('news', DashNews::class)->middleware('auth');
-Route::post('/dashboard/berita/store', [DashNews::class, 'store'])->middleware('auth');
-Route::get('/dashboard/berita/create', [DashNews::class, 'create'])->middleware('auth');
-Route::get('/dashboard/berita/{news:slug}', [DashNews::class, 'show'])->middleware('auth');
-Route::resource('/dashboard/berita', DashNews::class)->middleware('auth');
+Route::resource('news', DashNews::class)->middleware('isAdmin');
+Route::post('/dashboard/berita/store', [DashNews::class, 'store'])->middleware('isAdmin');
+Route::get('/dashboard/berita/create', [DashNews::class, 'create'])->middleware('isAdmin');
+Route::get('/dashboard/berita/{news:slug}', [DashNews::class, 'show'])->middleware('isAdmin');
+Route::resource('/dashboard/berita', DashNews::class)->middleware('isAdmin');
 
 //-------------------------------------------------------------------------------
 //WELCOME AREA
-/*Welcome */
+/*Welcome
 Route::get('/welcome', function () {
     return view('welcome', [
         "title"=>"Selamat Datang"
     ]);
-})->middleware('guest');
+})->middleware('guest');*/
 
 /*Home - Guest & Klien */
 Route::get('/home', function () {
@@ -93,11 +100,4 @@ Route::get('/about', function () {
         "title"=>"Tentang Kami",
         "active"=>"about"
     ]);
-})->middleware('auth');
-
-
-//-------------------------------------------------------------------------------
-//ADMIN AREA
-
-Route::get('/dashboard', [DashbboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
+});

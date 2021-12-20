@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\pendaftaran;
 use App\Models\User;
 use App\Models\galleri;
 
@@ -23,6 +24,22 @@ class DatabaseSeeder extends Seeder
             'name'=> 'Dwiky Lasmana Admin',
             'email'=> 'dwikylasmana@gmail.com',
             'password'=> bcrypt('dwiky')
+        ]);
+
+        pendaftaran::create([
+            'user_id'=> 1,
+            'name'=> 'Dwiky Lasmana',
+            'nik' => '1586498756324156',
+            'scan_ktp' => 'ktp.png',
+            'scan_kk'=> 'kk.png',
+            'telp'=> '083819192260',
+            'negara'=> 'Indonesia',
+            'provinsi' => 'Jawa Barat',
+            'alamat' => 'Jl. Baladewa D6 No. 10',
+            'npwp'=> '154879653284562',
+            'scan_npwp'=> 'npwp.png',
+            'no_sppkp'=> '561613132154',
+            'scan_sppkp'=> 'sppkp.png'
         ]);
 
         User::create([
@@ -98,7 +115,8 @@ class DatabaseSeeder extends Seeder
             'content'=>'Projek ini dibuat pada tanah yang tidak kosong'
         ]);
         
-        User::factory(3)->create();
+        User::factory(20)->create();
         News::factory(25)->create();
+        pendaftaran::factory(20)->create();
     }
 }

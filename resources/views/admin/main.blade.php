@@ -26,8 +26,16 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
-    <script type="/js/dashboard.js" src="javascript.js"></script>
+    <link href="/css/dashboard.css" rel="stylesheet"> 
+    <link type="text/css" href="/css/trix.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/dashboard.js"></script>
+    <script type="text/javascript" src="/js/trix.js"></script>
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display:none;
+        }
+    </style>
 
 </head>
 <body>
@@ -37,7 +45,7 @@
 
     <div class="container-fluid">
         <div class="row">
-        
+            
             @include('admin.sidebar')
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

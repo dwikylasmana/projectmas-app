@@ -8,7 +8,20 @@ use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashbboardController;
+use App\Http\Controllers\DashDaftar;
+use App\Http\Controllers\DashGallery;
 use App\Http\Controllers\DashNews;
+
+
+Route::resource('galleri', DashGallery::class)->middleware('auth');
+Route::resource('daftar', DashDaftar::class)->middleware('auth');
+
+
+Route::resource('news', DashNews::class)->middleware('auth');
+Route::post('/dashboard/berita/store', [DashNews::class, 'store'])->middleware('auth');
+Route::get('/dashboard/berita/create', [DashNews::class, 'create'])->middleware('auth');
+Route::get('/dashboard/berita/{news:slug}', [DashNews::class, 'show'])->middleware('auth');
+Route::resource('/dashboard/berita', DashNews::class)->middleware('auth');
 
 //-------------------------------------------------------------------------------
 //WELCOME AREA
@@ -24,7 +37,7 @@ Route::get('/home', function () {
     return view('homepage_klien', [
         "title"=>"Home",
         "active"=> "home"
-    ]);
+    ])->name('home');
 });
 
 /*Login & Logout */
@@ -82,6 +95,5 @@ Route::get('/about', function () {
 //-------------------------------------------------------------------------------
 //ADMIN AREA
 
-Route::get('/dashboard', [DashbboardController::class, 'index']);
+Route::get('/dashboard', [DashbboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::resource('dashboard/berita', DashNews::class)->middleware('auth');

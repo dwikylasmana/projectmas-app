@@ -8,36 +8,30 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/berita') ? 'active' : '' }}" href="/dashboard/berita">
+            <a class="nav-link {{ Request::is('dashboard/berita*') ? 'active' : '' }}" href="/dashboard/berita">
             <span data-feather="file"></span>
             Berita
             </a>
         </li>
-        <li class="nav-item {{ Request::is('dashboard/galeri') ? 'active' : '' }}">
-            <a class="nav-link" href="#">
+        <li class="nav-item {{ Request::is('dashboard/galleri*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('galleri.index') }}">
             <span data-feather="image"></span>
             Gallery
             </a>
         </li>
-        <li class="nav-item {{ Request::is('dashboard/riwayat') ? 'active' : '' }}">
-            <a class="nav-link" href="#">
-            <span data-feather="clock"></span>
-            Riwayat
-            </a>
-        </li>
-        <li class="nav-item {{ Request::is('dashboard/pendaftaran') ? 'active' : '' }}">
-            <a class="nav-link" href="#">
+        <li class="nav-item {{ Request::is('dashboard/daftar*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('daftar.index') }}">
             <span data-feather="archive"></span>
             Pendaftaran
             </a>
         </li>
-        <li class="nav-item {{ Request::is('dashboard/pengajuan') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('dashboard/pengajuan*') ? 'active' : '' }}">
             <a class="nav-link" href="#">
             <span data-feather="clipboard"></span>
             Pengajuan
             </a>
         </li>
-        <li class="nav-item {{ Request::is('dashboard/jadwal') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('dashboard/jadwal*') ? 'active' : '' }}">
             <a class="nav-link" href="#">
             <span data-feather="layers"></span>
             Jadwal

@@ -48,5 +48,6 @@ class User extends Authenticatable
         return $this->hasMany(News::class);
         return $this->hasMany(galleri::class);
         return $this->hasMany(Category::class);
+        return $this->belongsTo(pendaftaran::class);
     }
 }

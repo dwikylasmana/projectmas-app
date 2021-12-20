@@ -17,11 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'username',
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id',
     ];
 
     /**
@@ -32,7 +29,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'admin'
     ];
 
     /**
@@ -49,5 +45,10 @@ class User extends Authenticatable
         return $this->hasMany(galleri::class);
         return $this->hasMany(Category::class);
         return $this->belongsTo(pendaftaran::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'id';
     }
 }

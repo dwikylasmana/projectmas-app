@@ -25,66 +25,66 @@
                 <br>
                 @if ($galleri->image1 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image1}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image1}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image1 }}</small>
                 @endif
 
                 @if ($galleri->image2 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image2}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image2}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image2 }}</small>
                 @endif
 
                 @if ($galleri->image3 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image3}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image3}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image3 }}</small>
                 @endif
 
                 @if ($galleri->image4 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image4}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image4}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image4 }}</small>
                  @endif
                 @if ($galleri->image5 === null)
                     @else
-                    <img src="{{ Storage::url("{$galleri->image5}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image5}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image5 }}</small>
                 @endif
 
                 @if ($galleri->image6 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image6}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image6}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image6 }}</small>
                 @endif
 
                 @if ($galleri->image7 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image7}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image7}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image7 }}</small>
                 @endif
 
                 @if ($galleri->image7 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image7}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image7}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image7 }}</small>
                 @endif
 
                 @if ($galleri->image8 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image8}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image8}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image8 }}</small>
                 @endif
                 
                 @if ($galleri->image9 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image9}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image9}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image9 }}</small>
                 @endif
 
                 @if ($galleri->image10 === null)
                 @else
-                    <img src="{{ Storage::url("{$galleri->image10}") }}" class="rounded d-flex" style="width: 100%">
+                    <img src="{{ Storage::url("/projek/{$galleri->image10}") }}" class="rounded d-flex" style="width: 100%">
                     <small>{{ $galleri->image10 }}</small>
                 @endif
 

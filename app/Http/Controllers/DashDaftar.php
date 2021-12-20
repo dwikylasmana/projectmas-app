@@ -82,9 +82,27 @@ class DashDaftar extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, pendaftaran $daftar)
     {
-        //
+        $daftar->update([
+            'nik'        => $request->nik,
+            'telp'       => $request->telp,
+            'negara'     => $request->negara,
+            'provinsi'   => $request->provinsi,
+            'alamat'     => $request->alamat,
+            'npwp'       => $request->npwp,
+            'no_sppkp'   => $request->no_sppkp,
+            'msg'        => $request->msg,
+            'valid'      => $request->valid,
+        ]);
+
+        if($daftar){
+            //redirect dengan pesan sukses
+            return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Diupdate!']);
+        }
     }
 
     /**
@@ -100,10 +118,10 @@ class DashDaftar extends Controller
 
         if($daftar){
             //redirect dengan pesan sukses
-            return redirect()->route('galleri.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Dihapus!']);
         }else{
             //redirect dengan pesan error
-            return redirect()->route('galleri.index')->with(['error' => 'Data Gagal Dihapus!']);
+            return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
 }

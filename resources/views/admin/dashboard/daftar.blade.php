@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <a href="{{ route('galleri.create') }}" class="btn btn-md btn-success mb-3">Tambah Album</a>
+                        <br>
                         <table class="table table-bordered">
                             <thead>
                               <tr>
@@ -32,11 +32,11 @@
                                     <td>{{ $daftar->nik }}</td>
                                     <td>
                                         <a href="{{ route('daftar.show', $daftar->id) }}" class="badge bg-primary">Detail</a>
-                                        <a href="{{ route('daftar.edit', $daftar->id) }}" class="badge bg-warning">Edit</a>
+                                        <a href="{{ route('daftar.edit', $daftar->id) }}" class="badge bg-warning">Revisi</a>
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('daftar.destroy', $daftar->id) }}" method="POST" class="d-inline">
                                           @csrf
                                           @method('DELETE')
-                                          <button type="submit" class="badge bg-danger">HAPUS</button>
+                                          <button type="submit" class="badge bg-danger">Hapus</button>
                                       </form>
                                     </td>
                                 </tr>

@@ -13,6 +13,14 @@
             Berita
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/akun*') ? 'active' : '' }}" href="{{ route('akun.index') }}">
+            <span data-feather="file"></span>
+            Akun
+            </a>
+        </li>
+
         <li class="nav-item {{ Request::is('dashboard/galleri*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('galleri.index') }}">
             <span data-feather="image"></span>

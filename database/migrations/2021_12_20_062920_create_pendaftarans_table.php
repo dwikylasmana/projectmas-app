@@ -29,6 +29,8 @@ class CreatePendaftaransTable extends Migration
             $table->string('no_sppkp')->unique();
             $table->string('scan_sppkp');
             $table->timestamp('modified')->nullable();
+            $table->boolean('valid')->default('0')->nullable();
+            $table->text('msg')->nullable();
             $table->timestamps();
         });
     }

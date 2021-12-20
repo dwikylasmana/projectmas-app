@@ -6,15 +6,19 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashAkun;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashbboardController;
 use App\Http\Controllers\DashDaftar;
 use App\Http\Controllers\DashGallery;
+use App\Http\Controllers\DashJadwal;
 use App\Http\Controllers\DashNews;
 
 
 Route::resource('galleri', DashGallery::class)->middleware('auth');
 Route::resource('daftar', DashDaftar::class)->middleware('auth');
+Route::resource('akun', DashAkun::class)->middleware('auth');
+Route::resource('jadwal', DashJadwal::class)->middleware('auth');
 
 
 Route::resource('news', DashNews::class)->middleware('auth');

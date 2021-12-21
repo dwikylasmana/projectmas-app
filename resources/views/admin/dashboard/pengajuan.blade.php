@@ -33,7 +33,7 @@
                     <td>
                         <a href="{{ route('pengajuan.show', $pengajuan->id) }}" class="badge bg-primary">Detail</a>
                         <a href="{{ route('pengajuan.edit', $pengajuan->id) }}" class="badge bg-warning">Edit</a>
-                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('jadwal.destroy', $jadwal->id) }}" method="POST" class="d-inline">
+                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengajuan.destroy', $pengajuan->id) }}" method="POST" class="d-inline">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="badge bg-danger">Hapus</button>

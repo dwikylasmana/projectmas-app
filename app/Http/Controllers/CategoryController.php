@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
 
     public function find(Category $category){
-        return view('berita', [
+        return view('beritak', [
             'title'=>$category->name,
             "active"=> "berita",
             'news'=>$category->news,

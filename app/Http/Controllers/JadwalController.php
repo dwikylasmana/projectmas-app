@@ -17,13 +17,10 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
-
         return view('/jadwalsaya', [
             "title"     => "Jadwal",
             "active"    => "jadwal",
-            "user"      => User::findOrFail($id),
-            "jadwal"    => Jadwal::findOrFail($id)
+            "jadwal"    => Jadwal::where('user_id', auth()->user()->id)->get()
         ]);
     }
 

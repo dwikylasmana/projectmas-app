@@ -2,41 +2,47 @@
 
 @section('content') 
 
-<br>
-@if ($jadwal->count())
-    <section id="jadwal">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <h3 class="box-title mt-5">Informasi Jadwal:        {{ $user->name }}</h3>
-            <div class="table-responsive">
-                    <table class="table table-striped table-product mt-3">
-                        <tbody>
-                            <tr>
-                                <td width="390">Lokasi</td>
-                                <td>{{ $jadwal->lokasi }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal</td>
-                                <td>{{ $jadwal->date }}</td>
-                            </tr>
-                            <tr>
-                                <td>Waktu</td>
-                                <td>{{ $jadwal->time }}</td>
-                            </tr>
-                            <tr>
-                                <td>Catatan</td>
-                                <td>{{ $jadwal->note }}</td>
-                            </tr>
-                            <tr>
-                        </tbody>
-                    </table>
+    <br>
+
+    @if (count($jadwal) === 0)
+
+        <div class="container-fluid mt-100">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-sm-12 es text-center"> <img src="https://www.vectorjunky.com/wp-content/uploads/2017/02/Pr%20038%20-%20TRI%20-%2004_09_10%20-%20012.jpg" width="130" height="130" class="img-fluid mb-4 mr-3">
+                                <h3><strong>Anda belum mendapat jadwal</strong></h3>
+                                <h4>Silahkan mengisi form pendaftaran terlebih dahulu</h4> 
+                                <h4>Atau pastikan pendaftaran & pengajuan anda telah tervalidasi</h4> 
+                                <a href="{{ route('pendaftaran.index') }}" class="btn btn-primary cart-btn-transform m-3">Lakukan Pendaftaran</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-@else
-    <br>
-    <h2 class="text-center fs-4">Jadwal Tidak Ditemukan.</h2>
-    <br>
-@endif
+        
+    @endif
+    @foreach ($jadwal as $jadwal)
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tanggal</th>
+            <th scope="col">Waktu</th>
+            <th scope="col">Lokasi</th>
+            <th scope="col">Catatan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{ $jadwal->date }}</th>
+            <td>{{ $jadwal->time }}</td>
+            <td>{{ $jadwal->lokasi }}</td>
+            <td>{{ $jawadl->note }}</td>
+          </tr>
+        </tbody>
+      </table>
+    @endforeach
 
 @endsection

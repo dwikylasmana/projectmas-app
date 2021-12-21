@@ -44,8 +44,8 @@ class User extends Authenticatable
         return $this->hasMany(News::class);
         return $this->hasMany(galleri::class);
         return $this->hasMany(Category::class);
-        return $this->hasMany(pendaftaran::class);
-        return $this->hasMany(pengajuan::class);
+        return $this->hasOne(pendaftaran::class);
+        return $this->hasOne(pengajuan::class);
     }
 
     public function getRouteKeyName()

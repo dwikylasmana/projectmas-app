@@ -15,7 +15,7 @@ class DashAkun extends Controller
     public function index()
     {
         return view('/admin/dashboard/akun', [
-            'title'=>'Galeri Projek',
+            'title'=>'Kelola Akun',
             "active"=> "akun",
             'user'=> User::all()
         ]);

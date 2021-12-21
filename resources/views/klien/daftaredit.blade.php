@@ -1,18 +1,15 @@
-@extends('admin.main')
+@extends('layout/main_layout_v2')
 
-@section('content')
-
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>Panel {{ $title }}</h3>
-        <h5>Admin: {{ auth()->user()->name }}</h5>
-    </div>
-
+@section('content') 
+<br>
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
+                    <h5 class="card-header">Rubah Pendaftaran</h5>
+                    @foreach ($daftar as $daftar)
                     <div class="card-body">
-                        <form action="{{ route('daftar.update', $daftar->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('pendaftaran.update', $daftar->user->id) }}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             @method('PUT')
@@ -29,14 +26,18 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Scan KTP</label>
-                                <img src="{{ Storage::url("{$daftar->scan_ktp}") }}" class="rounded d-flex" style="width: 50%">
-                                <small>{{ $daftar->scan_ktp }}</small>
+                                <img src="{{ Storage::url("/daftar/{$daftar->scan_ktp}") }}" class="rounded d-flex" style="width: 50%">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="scan_ktp">
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Scan Kartu Keluarga</label>
-                                <img src="{{ Storage::url("{$daftar->scan_kk}") }}" class="rounded d-flex" style="width: 50%">
-                                <small>{{ $daftar->scan_kk }}</small>
+                                <img src="{{ Storage::url("/daftar/{$daftar->scan_kk}") }}" class="rounded d-flex" style="width: 50%">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="scan_kk">
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -71,7 +72,8 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat', $daftar->alamat) }}">
+                                <input id="alamat" type="hidden" name="alamat" value="{{ old('alamat', $daftar->alamat) }}">
+                                <trix-editor input="alamat"></trix-editor>
                                 @error('alamat')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
@@ -91,8 +93,10 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Scan NPWP</label>
-                                <img src="{{ Storage::url("{$daftar->scan_npwp}") }}" class="rounded d-flex" style="width: 50%">
-                                <small>{{ $daftar->scan_npwp }}</small>
+                                <img src="{{ Storage::url("/daftar/{$daftar->scan_npwp}") }}" class="rounded d-flex" style="width: 50%">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="scan_npwp">
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -107,33 +111,17 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Scan SPPKP</label>
-                                <img src="{{ Storage::url("{$daftar->scan_sppkp}") }}" class="rounded d-flex" style="width: 50%">
-                                <small>{{ $daftar->scan_sppkp }}</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Note Revisi</label>
-                                <input id="msg" type="hidden" name="msg" value="{{ old('msg', $daftar->msg) }}">
-                                <trix-editor input="msg"></trix-editor>
-                                @error('msg')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <img src="{{ Storage::url("/daftar/{$daftar->scan_sppkp}") }}" class="rounded d-flex" style="width: 50%">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="scan_sppkp">
+                                </div>
                             </div>
                             
-                            <div class="mb-3 mt-5">
-                                <label for="valid" class="form-label">Valid?</label>
-                                <select class="form-select" name="valid">s
-                                        <option value="0">Belum Valid</option>
-                                        <option value="1">Sudah Valid</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-md btn-primary">Rubah</button>
+                            <button type="submit" class="btn btn-md mt-5 btn-primary">Rubah</button>
                         
                         </form> 
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

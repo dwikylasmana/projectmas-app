@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\pendaftaran;
-use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorependaftaranRequest;
 use App\Http\Requests\UpdatependaftaranRequest;
 
@@ -16,14 +16,11 @@ class PendaftaranController extends Controller
      */
     public function index()
     {   
-        $user_id = auth()->user()->id;
-        return view('/klien/daftarr', [
+        return view('/klien/daftar', [
             'title' =>'List Pendaftaran',
             "active"=> "daftar",
-            'user'  => User::find($user_id),
-            'daftar'=> pendaftaran::where('user_id',$user_id)->first()
+            "daftar"=>  pendaftaran::where('user_id', auth()->user()->id)->get()
         ]);
-        
     }
 
     /**
@@ -82,9 +79,9 @@ class PendaftaranController extends Controller
         $user_name = auth()->user()->name;
 
         $daftar = pendaftaran::create([
-            'nik'           => $request->nik,
             'user_id'       => $user_id,
             'name'          => $user_name,
+            'nik'           => $request->nik,
             'scan_ktp'      => $scan_ktp,
             'scan_kk'       => $scan_kk,
             'telp'          => $request->telp,
@@ -123,10 +120,10 @@ class PendaftaranController extends Controller
      */
     public function edit(pendaftaran $daftar)
     {
-        return view('/admin/dashboard/daftaredit', [
+        return view('/klien/daftaredit', [
             "title"=> "Edit Pendaftaran Klien",
             "active"=> "daftar",
-            "daftar"=> $daftar,
+            "daftar"=> pendaftaran::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -139,22 +136,54 @@ class PendaftaranController extends Controller
      */
     public function update(UpdatependaftaranRequest $request, pendaftaran $daftar)
     {
-        $daftar->update([
-            'nik'        => $request->nik,
-            'telp'       => $request->telp,
-            'negara'     => $request->negara,
-            'provinsi'   => $request->provinsi,
-            'alamat'     => $request->alamat,
-            'npwp'       => $request->npwp,
-            'no_sppkp'   => $request->no_sppkp,
-            'msg'        => $request->msg,
-            'valid'      => $request->valid,
-        ]);
+        $rules = [
+            'nik'           => 'required',
+            'telp'          => 'required',
+            'negara'        => 'required',
+            'provinsi'      => 'required',
+            'alamat'        => 'required',
+            'npwp'          => 'required',
+            'no_sppkp'      => 'required',
+        ];
 
-        if($daftar){
-            return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        $validatedaftar = $request->validate($rules);
+        $user_id = auth()->user()->id;
+
+
+        if($request->file('scan_ktp') == "") {
+        } else {
+            $scan_ktp = $request->file('scan_ktp');
+            $scan_ktp->storeAs('/public/daftar', $scan_ktp->hashName());
+            pendaftaran::where('user_id', $user_id)->update(['scan_kk' => $scan_ktp->hashName()]);
+        }
+
+        if($request->file('scan_kk') == "") {
+        } else {
+            $scan_kk = $request->file('scan_kk');
+            $scan_kk->storeAs('/public/daftar', $scan_kk->hashName());
+            pendaftaran::where('user_id', $user_id)->update(['scan_kk' => $scan_kk->hashName()]);
+        }
+
+        if($request->file('scan_npwp') == "") {
+        } else {
+            $scan_npwp = $request->file('scan_npwp');
+            $scan_npwp->storeAs('/public/daftar', $scan_npwp->hashName());
+            pendaftaran::where('user_id', $user_id)->update(['scan_kk' => $scan_npwp->hashName()]);
+        }
+
+        if($request->file('scan_sppkp') == "") {
+        } else {
+            $scan_sppkp = $request->file('scan_sppkp');
+            $scan_sppkp->storeAs('/public/daftar', $scan_sppkp->hashName());
+            pendaftaran::where('user_id', $user_id)->update(['scan_kk' => $scan_sppkp->hashName()]);
+        }
+        
+        pendaftaran::where('user_id', $user_id)->update($validatedaftar);
+
+        if($validatedaftar){
+            return redirect()->route('pendaftaran.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
-            return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('pendaftaran.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -170,10 +199,8 @@ class PendaftaranController extends Controller
         $daftar->delete();
 
         if($daftar){
-            //redirect dengan pesan sukses
             return redirect()->route('pendaftaran.index')->with(['success' => 'Data Berhasil Dihapus!']);
         }else{
-            //redirect dengan pesan error
             return redirect()->route('pendaftaran.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }

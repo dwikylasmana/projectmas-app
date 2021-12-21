@@ -28,8 +28,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-3"><i class="bi bi-collection"></i></div>
-                                   <h2 class="fs-4 text-white">Alasan</h2>
-                                   <p class="mb-0 text-white">Kinerja Kami sangat effisien</p>
+                                   <h2 class="fs-4 text-white">Leadership</h2>
+                                   <p class="mb-0 text-white">in giving the best at all times to enchance our position as a leading corporate entity</p>
                                    </div>
                             </div>
                             </div>
@@ -37,8 +37,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-4"><i class="bi bi-cloud-download"></i></div>
-                                   <h2 class="fs-4 fw-bold text-white">Mengapa Kami?</h2>
-                                   <p class="mb-0 text-white">Kami melakukan semua projek dengan sistematis</p>
+                                   <h2 class="fs-4 fw-bold text-white">Equality</h2>
+                                   <p class="mb-0 text-white">of opportunities for all our people to participate in the growth of the Company</p>
                                    </div>
                             </div>
                             </div>
@@ -46,8 +46,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-4"><i class="bi bi-card-heading"></i></div>
-                                   <h2 class="fs-4 fw-bold text-white">Jumbotron hero header</h2>
-                                   <p class="mb-0 text-white">The heroic part of this template is the jumbotron hero header!</p>
+                                   <h2 class="fs-4 fw-bold text-white">Advancement</h2>
+                                   <p class="mb-0 text-white">for the realization of both the company's and individual's goal</p>
                                    </div>
                             </div>
                             </div>
@@ -55,8 +55,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-4"><i class="bi bi-bootstrap"></i></div>
-                                   <h2 class="fs-4 fw-bold text-white">Feature boxes</h2>
-                                   <p class="mb-0 text-white">We've created some custom feature boxes using Bootstrap icons!</p>
+                                   <h2 class="fs-4 fw-bold text-white">Diversification</h2>
+                                   <p class="mb-0 text-white">of strenght through new ventures and technological breakthrough</p>
                                    </div>
                             </div>
                             </div>
@@ -64,8 +64,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-4"><i class="bi bi-code"></i></div>
-                                   <h2 class="fs-4 fw-bold text-white">Simple clean code</h2>
-                                   <p class="mb-0 text-white">We keep our dependencies up to date and squash bugs as they come!</p>
+                                   <h2 class="fs-4 fw-bold text-white">Excellence</h2>
+                                   <p class="mb-0 text-white">in providing quality product and services to meet our customer's need</p>
                                    </div>
                             </div>
                             </div>
@@ -73,8 +73,8 @@
                             <div class="card bg-dark border-0 h-100">
                                    <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                    <div class="btn bg-warning bg-gradient rounded-3 mb-4 mt-4"><i class="bi bi-patch-check"></i></div>
-                                   <h2 class="fs-4 fw-bold text-white">A name you trust</h2>
-                                   <p class="mb-0 text-white">Start Bootstrap has been the leader in free Bootstrap templates since 2013!</p>
+                                   <h2 class="fs-4 fw-bold text-white">Rewards</h2>
+                                   <p class="mb-0 text-white">for the commitment of working towards the company's goal of creating value for our customers</p>
                                    </div>
                             </div>
                             </div>

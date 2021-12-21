@@ -15,13 +15,10 @@ class LOI extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-
         return view('/klien/pengajuan', [
             'title' =>'Pengajuan Kerjasama',
             "active"=> "pengajuan",
-            'user'  => User::findOrFail($user_id),
-            'pengajuan'=> pengajuan::findOrFail($user_id)
+            "pengajuan"=>  pengajuan::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -47,58 +44,53 @@ class LOI extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nik'           => 'required',
-            'scan_ktp'      => 'required',
-            'scan_kk'       => 'required',
-            'telp'          => 'required',
-            'negara'        => 'required',
-            'provinsi'      => 'required',
-            'alamat'        => 'required',
-            'npwp'          => 'required',
-            'scan_npwp'     => 'required',
-            'no_sppkp'      => 'required',
-            'scan_sppkp'    => 'required',
+            'content'       => 'required',
+            'file1'         => 'required',
         ]);
 
-        $scan_ktp = $request->file('scan_ktp');
-        $scan_ktp->storeAs('/public/daftar', $scan_ktp->hashName());
-        $scan_ktp = $scan_ktp->hashName();
+        $file1 = $request->file('file1');
+        $file1->storeAs('/public/pengajuan', $file1->hashName());
+        $file1 = $file1->hashName();
 
-        $scan_kk = $request->file('scan_kk');
-        $scan_kk->storeAs('/public/daftar', $scan_kk->hashName());
-        $scan_kk = $scan_kk->hashName();
+        if($request->file('file2') == "") {
+            $file2 = null;
+        } else {
+            $file2 = $request->file('file2');
+            $file2->storeAs('/public/pengajuan', $file2->hashName());
+            $file2 = $file2->hashName();
+        }
 
-        $scan_npwp = $request->file('scan_npwp');
-        $scan_npwp->storeAs('/public/daftar', $scan_npwp->hashName());
-        $scan_npwp = $scan_npwp->hashName();
+        if($request->file('file3') == "") {
+            $file3 = null;
+        } else {
+            $file3 = $request->file('file3');
+            $file3->storeAs('/public/pengajuan', $file3->hashName());
+            $file3 = $file3->hashName();
+        }
 
-        $scan_sppkp = $request->file('scan_sppkp');
-        $scan_sppkp->storeAs('/public/daftar', $scan_sppkp->hashName());
-        $scan_sppkp = $scan_sppkp->hashName();
+        if($request->file('file4') == "") {
+            $file4 = null;
+        } else {
+            $file4 = $request->file('file4');
+            $file4->storeAs('/public/pengajuan', $file4->hashName());
+            $file4 = $file4->hashName();
+        }
 
         $user_id = auth()->user()->id;
-        $user_name = auth()->user()->name;
 
-        $daftar = pengajuan::create([
-            'nik'           => $request->nik,
+        $pengajuan = pengajuan::create([
             'user_id'       => $user_id,
-            'name'          => $user_name,
-            'scan_ktp'      => $scan_ktp,
-            'scan_kk'       => $scan_kk,
-            'telp'          => $request->telp,
-            'negara'        => $request->negara,
-            'provinsi'      => $request->provinsi,
-            'alamat'        => $request->alamat,
-            'npwp'          => $request->npwp,
-            'scan_npwp'     => $scan_npwp,
-            'no_sppkp'      => $request->no_sppkp,
-            'scan_sppkp'    => $scan_sppkp,
+            'file1'         => $file1,
+            'file2'         => $file2,
+            'file3'         => $file3,
+            'file4'         => $file4,
+            'content'       => $request->content
         ]);
 
-        if($daftar){
-            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        if($pengajuan){
+            return redirect()->route('pengajuanloi.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
-            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('pengajuanloi.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -122,9 +114,9 @@ class LOI extends Controller
     public function edit(pengajuan $pengajuan)
     {
         return view('/klien/pengajuanedit', [
-            "title"=> "Edit Pengajuan",
-            "active"=> "pengajuan",
-            "pengajuan"=> $pengajuan,
+            "title"=> "Edit Pengajuan Klien",
+            "active"=> "daftar",
+            "pengajuan"=> pengajuan::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -137,22 +129,48 @@ class LOI extends Controller
      */
     public function update(Request $request, pengajuan $pengajuan)
     {
-        $pengajuan->update([
-            'nik'        => $request->nik,
-            'telp'       => $request->telp,
-            'negara'     => $request->negara,
-            'provinsi'   => $request->provinsi,
-            'alamat'     => $request->alamat,
-            'npwp'       => $request->npwp,
-            'no_sppkp'   => $request->no_sppkp,
-            'msg'        => $request->msg,
-            'valid'      => $request->valid,
-        ]);
+        $rules = [
+            'content'       => 'required',
+        ];
 
-        if($pengajuan){
-            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        $validatepengajuan = $request->validate($rules);
+        $user_id = auth()->user()->id;
+
+
+        if($request->file('file1') == "") {
+        } else {
+            $file1 = $request->file('file1');
+            $file1->storeAs('/public/pengajuan', $file1->hashName());
+            pengajuan::where('user_id', $user_id)->update(['file1' => $file1->hashName()]);
+        }
+
+        if($request->file('file2') == "") {
+        } else {
+            $file2 = $request->file('file2');
+            $file2->storeAs('/public/pengajuan', $file2->hashName());
+            pengajuan::where('user_id', $user_id)->update(['file2' => $file2->hashName()]);
+        }
+
+        if($request->file('file3') == "") {
+        } else {
+            $file3 = $request->file('file3');
+            $file3->storeAs('/public/pengajuan', $file3->hashName());
+            pengajuan::where('user_id', $user_id)->update(['file3' => $file3->hashName()]);
+        }
+
+        if($request->file('file4') == "") {
+        } else {
+            $file4 = $request->file('file4');
+            $file4->storeAs('/public/pengajuan', $file4->hashName());
+            pengajuan::where('user_id', $user_id)->update(['file4' => $file4->hashName()]);
+        }
+        
+        pengajuan::where('user_id', $user_id)->update($validatepengajuan);
+
+        if($validatepengajuan){
+            return redirect()->route('pengajuanloi.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
-            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('pengajuanloi.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -168,9 +186,9 @@ class LOI extends Controller
         $daftar->delete();
 
         if($daftar){
-            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('pengajuanloi.index')->with(['success' => 'Data Berhasil Dihapus!']);
         }else{
-            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Dihapus!']);
+            return redirect()->route('pengajuanloi.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
 }

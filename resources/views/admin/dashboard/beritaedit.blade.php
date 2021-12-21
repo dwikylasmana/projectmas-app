@@ -24,7 +24,6 @@
     <div class="card border-0 shadow rounded">
         <div class="card-body">
             <form action="{{ route('news.update', $news->slug) }}" method="POST" enctype="multipart/form-data">
-            
                 @csrf
                 @method('PUT')
 

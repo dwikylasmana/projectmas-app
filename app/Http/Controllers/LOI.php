@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pendaftaran;
-use App\Models\User;
-use App\Http\Requests\StorependaftaranRequest;
-use App\Http\Requests\UpdatependaftaranRequest;
+use Illuminate\Http\Request;
+use App\models\User;
+use App\models\pengajuan;
 
-class PendaftaranController extends Controller
+class LOI extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,15 @@ class PendaftaranController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $user_id = auth()->user()->id;
-        return view('/klien/daftarr', [
-            'title' =>'List Pendaftaran',
-            "active"=> "daftar",
-            'user'  => User::find($user_id),
-            'daftar'=> pendaftaran::where('user_id',$user_id)->first()
+
+        return view('/klien/pengajuan', [
+            'title' =>'Pengajuan Kerjasama',
+            "active"=> "pengajuan",
+            'user'  => User::findOrFail($user_id),
+            'pengajuan'=> pengajuan::findOrFail($user_id)
         ]);
-        
     }
 
     /**
@@ -33,21 +32,20 @@ class PendaftaranController extends Controller
      */
     public function create()
     {
-        return view('/klien/daftarbuat', [
-            'title'=>'Pendaftaran',
-            "active"=> "daftar",
+        return view('/klien/pengajuanbuat', [
+            'title'=>'Buat Pengajuan',
+            "active"=> "pengajuan",
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorependaftaranRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorependaftaranRequest $request)
+    public function store(Request $request)
     {
-
         $this->validate($request, [
             'nik'           => 'required',
             'scan_ktp'      => 'required',
@@ -81,7 +79,7 @@ class PendaftaranController extends Controller
         $user_id = auth()->user()->id;
         $user_name = auth()->user()->name;
 
-        $daftar = pendaftaran::create([
+        $daftar = pengajuan::create([
             'nik'           => $request->nik,
             'user_id'       => $user_id,
             'name'          => $user_name,
@@ -98,19 +96,19 @@ class PendaftaranController extends Controller
         ]);
 
         if($daftar){
-            return redirect()->route('pendaftaran.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Disimpan!']);
         }else{
-            return redirect()->route('pendaftaran.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(pendaftaran $pendaftaran)
+    public function show($id)
     {
         //
     }
@@ -118,28 +116,28 @@ class PendaftaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(pendaftaran $daftar)
+    public function edit(pengajuan $pengajuan)
     {
-        return view('/admin/dashboard/daftaredit', [
-            "title"=> "Edit Pendaftaran Klien",
-            "active"=> "daftar",
-            "daftar"=> $daftar,
+        return view('/klien/pengajuanedit', [
+            "title"=> "Edit Pengajuan",
+            "active"=> "pengajuan",
+            "pengajuan"=> $pengajuan,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatependaftaranRequest  $request
-     * @param  \App\Models\pendaftaran  $pendaftaran
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatependaftaranRequest $request, pendaftaran $daftar)
+    public function update(Request $request, pengajuan $pengajuan)
     {
-        $daftar->update([
+        $pengajuan->update([
             'nik'        => $request->nik,
             'telp'       => $request->telp,
             'negara'     => $request->negara,
@@ -151,30 +149,28 @@ class PendaftaranController extends Controller
             'valid'      => $request->valid,
         ]);
 
-        if($daftar){
-            return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        if($pengajuan){
+            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }else{
-            return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $daftar = pendaftaran::findOrFail($id);
+        $daftar = pengajuan::findOrFail($id);
         $daftar->delete();
 
         if($daftar){
-            //redirect dengan pesan sukses
-            return redirect()->route('pendaftaran.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('pengajuan.index')->with(['success' => 'Data Berhasil Dihapus!']);
         }else{
-            //redirect dengan pesan error
-            return redirect()->route('pendaftaran.index')->with(['error' => 'Data Gagal Dihapus!']);
+            return redirect()->route('pengajuan.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
 }

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jadwal;
-use App\Models\User;
-use App\Http\Requests\StoreJadwalRequest;
-use App\Http\Requests\UpdateJadwalRequest;
-use Clockwork\Request\Request;
+use Illuminate\Http\Request;
 
-class JadwalController extends Controller
+class Pendaftaran extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +13,7 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
-
-        return view('/jadwalsaya', [
-            "title"     => "Jadwal",
-            "active"    => "jadwal",
-            "user"      => User::findOrFail($id),
-            "jadwal"    => Jadwal::findOrFail($id)
-        ]);
+        //
     }
 
     /**
@@ -40,10 +29,10 @@ class JadwalController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreJadwalRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreJadwalRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,10 +40,10 @@ class JadwalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jadwal  $jadwal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Jadwal $jadwal)
+    public function show($id)
     {
         //
     }
@@ -62,10 +51,10 @@ class JadwalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jadwal  $jadwal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jadwal $jadwal)
+    public function edit($id)
     {
         //
     }
@@ -73,11 +62,11 @@ class JadwalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateJadwalRequest  $request
-     * @param  \App\Models\Jadwal  $jadwal
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJadwalRequest $request, Jadwal $jadwal)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +74,10 @@ class JadwalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jadwal  $jadwal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jadwal $jadwal)
+    public function destroy($id)
     {
         //
     }

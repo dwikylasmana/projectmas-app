@@ -22,6 +22,8 @@
         
         <link href="/css/style.css" rel="stylesheet">
         <script type="/js/main.js" src="javascript.js"></script>
+        <link href="/css/trix.css" rel="stylesheet">
+        <script type="text/javascript" src="/js/trix.js"></script>
 
         <!-- Belum fungsi
         <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">

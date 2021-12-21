@@ -20,17 +20,17 @@
               </ul>
             <li><a class="nav-link {{ ($active === "galeri") ? 'active' : '' }}" href="/galeri">Galeri</a></li>
             <li><a class="nav-link {{ ($active === "visi_misi") ? 'active' : '' }}" href="/visi_misi">Visi & Misi</a></li>.
-            <li><a class="nav-link {{ ($active === "riwayat") ? 'active' : '' }}" href="/riwayat">Riwayat</a></li>
+            <li><a class="nav-link {{ ($active === "jadwal") ? 'active' : '' }}" href="/jadwalsaya">Jadwal Saya</a></li>
             <li class="dropdown"><a class="nav-link {{ ($active === "pendaftaran") ? 'active' : '' }}" href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a class="nav-link {{ ($active === "pendaftaran") ? 'active' : '' }}" href="/pendaftaran">Pendaftaran Kerjasama</a></li>
-                <li><a class="nav-link {{ ($active === "pengajuan") ? 'active' : '' }}" href="/pengajuan">Pengajuan Projek</a></li>
+                <li><a class="nav-link {{ ($active === "pendaftaran") ? 'active' : '' }}" href="{{ route('pendaftaran.index') }}">Pendaftaran Kerjasama</a></li>
+                <li><a class="nav-link {{ ($active === "pengajuan") ? 'active' : '' }}" href="{{ route('pengajuanloi.index') }}">Pengajuan Projek</a></li>
               </ul>
             </li>
 
             <li class="dropdown"><a class="nav-link {{ ($active === "akun") ? 'active' : '' }}" href="#"><span>{{ auth()->user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a class="nav-link {{ ($active === "akun") ? 'active' : '' }}" href="/acc">Akun Saya</a></li>
+                <li><a class="nav-link {{ ($active === "akun") ? 'active' : '' }}" href="{{ route('acc.index') }}">Akun Saya</a></li>
                 <li>
                   <form action="/logout" method="post">
                       @csrf

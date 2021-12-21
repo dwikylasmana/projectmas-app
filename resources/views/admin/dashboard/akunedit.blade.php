@@ -2,6 +2,19 @@
 
 @section('content')
 
+    @if (session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if (session()->has('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3>Panel {{ $title }}</h3>
         <h5>Admin: {{ auth()->user()->name }}</h5>
@@ -44,7 +57,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-md btn-primary">Rubah</button>
+                            <button type="submit" class="btn btn-md btn-warning">Rubah</button>
                         
                         </form> 
                     </div>

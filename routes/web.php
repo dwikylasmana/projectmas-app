@@ -14,11 +14,16 @@ use App\Http\Controllers\DashGallery;
 use App\Http\Controllers\DashJadwal;
 use App\Http\Controllers\DashNews;
 use App\Http\Controllers\DashPengajuan;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\LOI;
+use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\Pengajuan;
 use App\Http\Controllers\PengajuanController;
 
 //-------------------------------------------------------------------------------
 //ADMIN AREA
 
+/*Dashboard Panel */
 Route::get('/dashboard', [DashbboardController::class, 'index'])->name('dashboard')->middleware('isAdmin');
 Route::resource('galleri', DashGallery::class)->middleware('isAdmin');
 Route::resource('daftar', DashDaftar::class)->middleware('isAdmin');
@@ -35,28 +40,18 @@ Route::get('/dashboard/berita/{news:slug}', [DashNews::class, 'show'])->middlewa
 Route::resource('/dashboard/berita', DashNews::class)->middleware('isAdmin');
 
 //-------------------------------------------------------------------------------
-//WELCOME AREA
-/*Welcome
-Route::get('/welcome', function () {
-    return view('welcome', [
-        "title"=>"Selamat Datang"
-    ]);
-})->middleware('guest');*/
-
-/*Home - Guest & Klien */
+//WELCOME AREA (GUEST ONLY)
 Route::get('/home', function () {
-    return view('homepage_klien', [
-        "title"=>"Home",
+    return view('homepage_', [
+        "title"=> "Visi & Misi",
         "active"=> "home"
-    ])->name('home');
-});
+    ]);
+})->middleware('auth');
 
 /*Login & Logout */
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'auth']);
-
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/acc', [AccController::class, 'index'])->middleware('auth');
 
 /*Register */
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -73,10 +68,21 @@ Route::get('/berita/{halaman:slug}', [NewsController::class, 'single'])->middlew
 Route::get('/kategori_berita', [CategoryController::class, 'show'])->middleware('auth');
 Route::get('/berita/kategori/{category:slug}', [CategoryController::class, 'find'])->middleware('auth');
 
+/*Jadwal */
+Route::get('/jadwalsaya', [JadwalController::class, 'index'])->middleware('auth');
+
+/*Pengajuan */
+Route::resource('pengajuanloi', LOI::class)->middleware('auth');
 
 /*Gallery */
 Route::get('/galeri', [GalleriController::class, 'index'])->middleware('auth');
 Route::get('/galeri/{details:slug}', [GalleriController::class, 'single'])->middleware('auth');
+
+/*Akun*/
+Route::resource('acc', AccController::class)->middleware('auth');
+
+/*Pendafataran*/
+Route::resource('pendaftaran', PendaftaranController::class)->middleware('auth');
 
 /*Riwayat Projek*/
 Route::get('/riwayat', function () {

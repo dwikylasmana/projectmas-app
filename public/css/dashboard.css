@@ -8,11 +8,9 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
+  /* Sidebar --------------------------------------------------------------*/
 
-.sidebar {
+ .sidebar {
   position: fixed;
   top: 0;
   /* rtl:raw:
